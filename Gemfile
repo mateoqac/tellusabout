@@ -33,7 +33,6 @@ gem 'chosen-rails'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
 gem "bootstrap-sass", "~> 3.3"
-gem "sass-rails", "~> 5.0"
 gem 'countries', require: 'countries/global'
 
 gem 'simple_enum', '~> 2.3.0' , require: 'simple_enum/mongoid'
