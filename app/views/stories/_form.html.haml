@@ -1,0 +1,22 @@
+= simple_form_for @story do |f|
+  = f.error_notification
+
+  = f.input :title
+  = f.input :body, as: :text, label: 'Body', rows: 5
+  = f.input :country, label: 'Country', collection: CountryStateSelect.countries_collection
+  = f.input :state, CountryStateSelect.state_options(label: 'State / Province', form: f, field_names: { :country => :country, :state => :home_state } )
+  = f.input :city, CountryStateSelect.city_options(label: 'City', form: f, field_names: {  :state => :state, :city => :home_city } )
+  = f.label :weather_season, 'Weather Season'
+  %br
+  -# = f.input :weather_season do
+  -#   = f.select :weather_season, Story.weather_seasons.hash.to_a.map { |ws| [ws.first, ws.second]}, { class: 'chosen-select' } , include_blank: true 
+  -# = f.select :weather_season, Story.weather_seasons.hash.to_a.map { |ws| [ws.first, ws.second] },{ include_blank: true },{ class: 'chosen-select' }
+  .form-control
+    = f.collection_radio_buttons :weather_season, Story.weather_seasons.hash.to_a, :last, :first, required: true
+
+  %br/
+  %br/
+  = f.button :submit, class: 'btn btn-success'
+  = link_to 'Cancel', stories_path, class: 'btn btn-danger'
+  
+    
