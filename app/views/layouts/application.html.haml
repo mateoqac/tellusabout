@@ -7,9 +7,9 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = tag :meta, name: :psj, action: action_name, controller: controller_name
+    -# = tag :meta, name: :psj, action: action_name, controller: controller_name
     
-  %body
+  %body{class:"#{controller_name} #{action_name}"}
     - flash.each do |key, value|
       %div{class: "text-center alert alert-#{key}"}
         = link_to '#', class: 'close', data: {dismiss: "alert"} do

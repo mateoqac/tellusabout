@@ -1,19 +1,21 @@
 %h1 Listing Stories
--# %table
--#   %thead
--#     %tr
--#       %th Country
--#       %td  
--#       %th State
--#       %td  
--#       %td  
--#   %tbody
--#     - @locations.each do |location|
--#       %tr
--#         %td= location.test_country
--#         %td  
--#         %td= location.test_state
--#         %td  
--#         %td= link_to "X", location, :method => :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
-%br/
-= link_to 'New Story', new_story_path, class: "btn btn-success", data: { no_turbolink: true }
+%table.table
+  %thead.black.white-text
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Country
+      %th{:scope => "col"} City
+      %th{:scope => "col"} Season
+  %tbody
+    - @stories.each do |story|
+      %tr
+        %th{:scope => "row"} 
+          = story.id
+        %td
+          = story.dirty_country.name
+        %td
+          = story.city
+        %td
+          = story.weather_season
+
+= link_to 'New Story', new_story_path, class: "btn btn-success", id:'new-story', data: { no_turbolink: true }

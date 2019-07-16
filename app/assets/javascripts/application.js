@@ -19,11 +19,16 @@
 //= require turbolinks
 //= require_tree .
 
-
-$(document).on('ready page:load',function() {
+$(document).on("turbolinks:load", function() {
   $('.chosen-select').chosen({
     allow_single_deselect: true,
     no_results_text: 'No results matched',
     width: '200px'
-  });  
+  });
+
+  if (!($(".stories.new").length > 0)) {
+    return;
+  }
+
+  CountryStateSelect({ chosen_ui: true, country_id: "story_country", state_id: "story_state" ,city_id: "story_city",city_place_holder: "Please select city", state_place_holder: 'Please select state'});
 });

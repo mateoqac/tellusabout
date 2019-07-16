@@ -16,15 +16,17 @@ ActiveRecord::Schema.define(version: 2019_07_15_054612) do
   enable_extension "plpgsql"
 
   create_table "stories", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
-    t.integer "user_id"
-    t.string "country"
-    t.string "state"
-    t.string "city"
-    t.integer "weather_season_cd"
+    t.string "title", null: false
+    t.string "body", null: false
+    t.string "country", null: false
+    t.string "state", null: false
+    t.string "city", null: false
+    t.integer "weather_season_cd", null: false
+    t.integer "type_of_experience_cd", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,6 +2,7 @@ class StoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @stories = Story.all
   end
   
   def create
@@ -22,7 +23,7 @@ class StoriesController < ApplicationController
 
 
   def strong_params
-    params.require(:story).permit(:country, :state, :city, :weather_season, :title, :body, :user_id)
+    params.require(:story).permit(:country, :state, :city, :weather_season, :title, :body, :user_id, :type_of_experience)
   end
 end
 
