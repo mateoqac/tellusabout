@@ -1,17 +1,36 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
+.wrapper
+  
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name),  html: { class: 'horizontal_form login' }) do |f|
+    %p.title Log in
+    = f.error_notification
+    = f.email_field :email, autofocus: true, placeholder: "Email"
+    = fa_icon 'user'
+    = f.password_field :password, placeholder: "password"
+    = fa_icon 'key'
+    = link_to('Forgot your password?', new_user_password_path, id:"forget-password", class:"forget-password")
     .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+      = f.input :remember_me, wrapper: :horizontal_collection_inline, label: 'Remember', as: :boolean  if devise_mapping.rememberable?
+    = f.button :button, 'Log in'
+    
+    
+    -# %button
+    -#   %i.spinner
+    -#   %span.state Log in
+
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"

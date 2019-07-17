@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require country_state_select
