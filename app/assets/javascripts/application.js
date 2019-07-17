@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require bootstrap
-//= require bootstrap-sprockets
-//= require chosen-jquery
+// = require chosen-jquery
 //= require country_state_select
 //= require rails-ujs
 //= require activestorage

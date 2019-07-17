@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
 gem 'bootstrap_form'
+gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem "haml-rails", "~> 2.0"
 # gem 'country_state_select', git: 'git://github.com/arvindvyas/Country-State-Select', branch: :master
@@ -32,7 +34,6 @@ gem 'simple_form','~> 4.1.0'
 gem 'chosen-rails'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
-gem "bootstrap-sass", "~> 3.3"
 gem 'countries', require: 'countries/global'
 
 gem 'simple_enum', '~> 2.3.0' , require: 'simple_enum/mongoid'
