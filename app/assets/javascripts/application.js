@@ -32,3 +32,11 @@ $(document).on("turbolinks:load", function() {
 
   CountryStateSelect({ chosen_ui: true, country_id: "story_country", state_id: "story_state" ,city_id: "story_city",city_place_holder: "Please select city", state_place_holder: 'Please select state'});
 });
+
+$(document).on("turbolinks:load", function(){
+  window.setTimeout(function () {
+      $(".alert").fadeTo(300, 0).slideUp(300, function () {
+          $(this).remove();
+      });
+}, 3000);
+})

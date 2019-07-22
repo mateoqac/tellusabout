@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => [:index]
 
   def index
     @stories = Story.all
@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
     story = Story.create(strong_params.merge(user_id: current_user.id))
     
     if story.save
-      flash[:notice] = "Story created successfully"
+      flash[:success] = "Story created successfully"
       redirect_to root_path
     else
       @story = story
